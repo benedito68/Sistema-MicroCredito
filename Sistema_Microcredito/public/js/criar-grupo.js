@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     closeConfirmationBtn.addEventListener('click', function() {
         // Redirecionar para a página inicial após criar o grupo
-        window.location.href = 'dashboard.html';
+        window.location.href = '/dashboard';
     });
     
     // Fechar modal ao clicar fora

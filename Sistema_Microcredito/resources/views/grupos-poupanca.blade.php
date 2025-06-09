@@ -16,7 +16,7 @@
         <!-- Cabeçalho -->
         <div class="groups-header">
             <!-- Botão Voltar -->
-            <a href="dashboard.html" class="btn-voltar-link">
+            <a href="/dashboard" class="btn-voltar-link">
                 <button class="btn-voltar" id="btn-voltar" title="Voltar">
                     <i class="fas fa-arrow-left"></i>
                     <span class="tooltip">Voltar</span>
@@ -27,12 +27,12 @@
                 <p>Gerencie seus grupos de poupança comunitária</p>
             </div>
             <div class="header-right">
-                <a href="adesao-grupos.html">
+                <a href="/adesao-grupos">
                     <button class="btn btn-primary" id="btn-join-group">
                         <i class="fas fa-sign-in-alt"></i> Aderir a Grupo
                     </button>
                 </a>
-                <a href="criar-grupo.html">
+                <a href="/criar-grupo">
                     <button class="btn btn-success" id="btn-create-group">
                         <i class="fas fa-plus-circle"></i> Criar Grupo
                     </button>
@@ -148,19 +148,19 @@
 
             <form id="create-group-form">
                 <div class="form-group">
-                    <label for="group-name">Nome do Grupo *</label>
+                    <label for="group-name">Nome do Grupo </label>
                     <input type="text" id="group-name" placeholder="Ex: Poupança Comunitária Bairro X" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="group-description">Descrição *</label>
+                    <label for="group-description">Descrição </label>
                     <textarea id="group-description" rows="3" placeholder="Descreva os objetivos do grupo"
                         required></textarea>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="min-value">Valor Mínimo Mensal *</label>
+                        <label for="min-value">Valor Mínimo Mensal </label>
                         <div class="input-with-symbol">
                             <span>MT</span>
                             <input type="number" id="min-value" min="500" step="100" value="1000" required>

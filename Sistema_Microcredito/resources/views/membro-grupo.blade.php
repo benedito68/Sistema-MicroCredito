@@ -13,7 +13,7 @@
 <body>
     <div class="member-group-container">
                 <!-- Botão Voltar -->
-        <a href="dashboard.html" class="btn-voltar-link">
+        <a href="/dashboard" class="btn-voltar-link">
             <button class="btn-voltar" id="btn-voltar" title="Voltar">
                 <i class="fas fa-arrow-left"></i>
                 <span class="tooltip">Voltar</span>

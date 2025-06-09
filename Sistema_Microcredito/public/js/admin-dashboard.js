@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         if(confirm('Tem certeza que deseja terminar a sessão?')) {
             // Redirecionar para a página de login
-            window.location.href = 'index.html';
+                     window.location.href = "{{ route('login') }}";
         }
     });
     

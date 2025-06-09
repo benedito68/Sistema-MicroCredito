@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     closeConfirmationBtn.addEventListener('click', function() {
         // Redirecionar para a página inicial após enviar a solicitação
-        window.location.href = 'dashboard.html';
+        window.location.href = '/dashboard';
     });
     
     // Funções

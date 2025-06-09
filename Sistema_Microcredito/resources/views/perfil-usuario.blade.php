@@ -12,7 +12,7 @@
 <body>
     <div class="profile-container">
         <!-- Botão Voltar -->
-        <a href="dashboard.html" class="btn-voltar-link">
+        <a href="/dashboard" class="btn-voltar-link">
             <button class="btn-voltar" id="btn-voltar" title="Voltar">
                 <i class="fas fa-arrow-left"></i>
                 <span class="tooltip">Voltar</span>
@@ -183,7 +183,7 @@
 
             <form id="change-password-form">
                 <div class="form-group">
-                    <label for="current-password">Senha Atual *</label>
+                    <label for="current-password">Senha Atual </label>
                     <div class="password-input">
                         <input type="password" id="current-password" required>
                         <i class="fas fa-eye toggle-password"></i>
@@ -191,7 +191,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="new-password">Nova Senha *</label>
+                    <label for="new-password">Nova Senha </label>
                     <div class="password-input">
                         <input type="password" id="new-password" required>
                         <i class="fas fa-eye toggle-password"></i>

@@ -23,12 +23,11 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         if(confirm('Tem certeza que deseja terminar a sessão?')) {
             // Redirecionar para a página de login
-            window.location.href = 'index.html';
+            window.location.href = "/index";
         }
     });
     
-    
-    
+
     // Gráfico de poupança
     const ctx = document.getElementById('savings-chart').getContext('2d');
     const savingsChart = new Chart(ctx, {

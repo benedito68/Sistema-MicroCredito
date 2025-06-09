@@ -1,4 +1,3 @@
-Pagina de cadastrar conta:
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -385,17 +384,17 @@ Pagina de cadastrar conta:
                 <div class="form-step active" id="form-step-1">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="first-name">Nome *</label>
+                            <label for="first-name">Nome </label>
                             <input type="text" id="first-name" required>
                         </div>
                         <div class="form-group">
-                            <label for="last-name">Apelido *</label>
+                            <label for="last-name">Apelido </label>
                             <input type="text" id="last-name" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email *</label>
+                        <label for="email">Email </label>
                         <input type="email" id="email" required>
                     </div>
 
@@ -518,8 +517,8 @@ Pagina de cadastrar conta:
             // Função para atualizar o progresso
             function updateProgress(step) {
                 steps.forEach(s => {
-                    const stepElement = document.getElementById(step-${s});
-                    const formStep = document.getElementById(form-step-${s});
+                    const stepElement = document.getElementById(`step-${s}`);
+                    const formStep = document.getElementById(`form-step-${s}`);
 
                     if (s < step) {
                         stepElement.classList.remove('active');
@@ -669,7 +668,7 @@ Pagina de cadastrar conta:
             // Botão do modal de sucesso
             document.getElementById('success-btn').addEventListener('click', function() {
                 // Redirecionar para a página de login
-                window.location.href = 'login.html';
+                window.location.href = "{{ route('login') }}";
             });
         });
     </script>
