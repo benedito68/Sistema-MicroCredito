@@ -17,7 +17,7 @@
             <h2>Gestão de Microcréditos</h2>
             <p>Solução completa para gerenciamento de pequenos empréstimos e financiamentos</p>
             <div class="illustration">
-                <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Finanças ilustração">
+                <img src="imagem/descarregar-removebg-preview.png" alt="Finanças ilustração">
             </div>
         </div>
 
@@ -62,7 +62,7 @@
                 <button type="submit" class="login-button">Entrar</button>
 
                 <div class="register-link">
-                    <p>Não tem uma conta? <a href="{{ route('solicitar-conta') }}">Solicite acesso</a></p>
+                    <p>Não tem uma conta? <a href="{{ route('solicitar-conta') }}"> Criar conta </a></p>
                 </div>
             </form>
         </div>

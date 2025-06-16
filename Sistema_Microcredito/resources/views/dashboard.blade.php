@@ -68,14 +68,14 @@
                     <div class="user-dropdown">
                         <button class="user-button">
                             <i class="fas fa-user-circle"></i>
-                            <span id="username-display">Maria Silva</span>
+                            <span id="username-display">{{ Auth::user()->nome }}</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="dropdown-menu">
                             <a href="{{ route('perfil-usuario') }}"><i class="fas fa-user"></i> Meu Perfil</a>
                             <a href="#"><i class="fas fa-cog"></i> Configurações</a>
                             <div class="divider"></div>
-                            <a href="{{ route('login') }}" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Terminar Sessão</a>
+                          <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Terminar Sessão</a>
                         </div>
                     </div>
                 </div>
@@ -216,6 +216,13 @@
             </main>
         </div>
     </div>
+
+    //logout form
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+    </form>
+
+
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
