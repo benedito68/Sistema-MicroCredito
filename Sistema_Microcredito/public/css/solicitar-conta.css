@@ -1,0 +1,400 @@
+   
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4a6cf7;
+            --primary-light: #e6e9ff;
+            --success: #28a745;
+            --success-light: #e6f7eb;
+            --danger: #dc3545;
+            --danger-light: #fce8ea;
+            --dark: #343a40;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --gray-light: #e9ecef;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .signup-container {
+            background: white;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+              
+/* Adicione isso ao seu arquivo CSS */
+.btn-voltar-link {
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 10;
+}
+
+.btn-voltar:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
+
+.btn-voltar:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.btn-voltar .tooltip {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-10px);
+    background-color: var(--dark);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.btn-voltar .tooltip::before {
+    content: '';
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent var(--dark) transparent transparent;
+}
+
+        .signup-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .signup-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .signup-progress {
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem;
+            background-color: var(--primary-light);
+        }
+
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            width: 100px;
+        }
+
+        .progress-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 60px;
+            width: 80px;
+            height: 2px;
+            background-color: var(--gray-light);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            border: 2px solid var(--gray-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--gray);
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            text-align: center;
+        }
+
+        .progress-step.active .step-number {
+            border-color: var(--primary);
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .progress-step.active .step-label {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .progress-step.completed .step-number {
+            border-color: var(--success);
+            background-color: var(--success);
+            color: white;
+        }
+
+        .progress-step.completed .step-label {
+            color: var(--success);
+        }
+
+        .progress-step.completed:not(:last-child)::after {
+            background-color: var(--success);
+        }
+
+        .signup-body {
+            padding: 2rem;
+        }
+
+        .signup-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-step {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .form-step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--gray-light);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .form-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+        }
+
+        .btn i {
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #3a5bd9;
+        }
+
+        .btn-outline {
+            background: none;
+            border: 1px solid var(--gray-light);
+            color: var(--dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--gray-light);
+        }
+
+        .btn[disabled] {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .terms-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .terms-group input {
+            margin-top: 0.2rem;
+        }
+
+        .terms-group label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .terms-group label a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .terms-group label a:hover {
+            text-decoration: underline;
+        }
+
+        .add-city-container {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .add-city-input {
+            flex: 1;
+        }
+
+        .add-city-btn {
+            padding: 0.8rem;
+        }
+
+        /* Modal de sucesso */
+        .success-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .success-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--success);
+            margin-bottom: 1.5rem;
+        }
+
+        .success-message {
+            margin-bottom: 1.5rem;
+        }
+
+        .success-message h2 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .success-message p {
+            color: var(--gray);
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .signup-container {
+                margin: 1rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .signup-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .progress-step {
+                width: 80px;
+            }
+
+            .progress-step:not(:last-child)::after {
+                left: 50px;
+                width: 60px;
+            }
+
+            .step-label {
+                font-size: 0.8rem;
+            }
+        }
+

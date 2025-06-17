@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
+    alert('Bem-vindo ao sistema de login! O botao Funciona');
     // Toggle para mostrar/esconder senha
     const togglePassword = document.getElementById('togglePassword');
     const password = document.getElementById('password');
+    console.log('Dados de password:', password);
     
     togglePassword.addEventListener('click', function() {
         const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
@@ -17,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
+        console.log('Dados de Usuario:', username, password);
+        
         
         // Validação simples (substitua por sua lógica real)
         if (username.trim() === '' || password.trim() === '') {

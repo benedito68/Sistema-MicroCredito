@@ -18,17 +18,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Logout
-    const logoutBtn = document.getElementById('logout-btn');
-    logoutBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        if(confirm('Tem certeza que deseja terminar a sessão?')) {
-            // Redirecionar para a página de login
-            window.location.href = 'index.html';
-        }
-    });
+   const logoutBtn = document.getElementById('logout-btn');
+logoutBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    if(confirm('Tem certeza que deseja terminar a sessão?')) {
+        document.getElementById('logout-form').submit();
+    }
+});
+
     
-    
-    
+
     // Gráfico de poupança
     const ctx = document.getElementById('savings-chart').getContext('2d');
     const savingsChart = new Chart(ctx, {

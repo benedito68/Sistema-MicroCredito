@@ -1,43 +1,39 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\EmprestimoController;
+use App\Http\Controllers\GrupoController;
 
-Route::get('/', function () {
-    return view('index');
-})->name('login');
+// Tela de Login
+Route::get('/', [AuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login.perform');
 
-//solictar conta
-Route::get('/solicitar-conta', function () {
-    return view('solicitar-conta');
-})->name('solicitar-conta');
+// Tela de Solicitar conta
+Route::get('/solicitar-conta', [AuthController::class, 'showSolicitarConta'])->name('solicitar-conta');
+Route::post('/solicitar-conta', [AuthController::class, 'store'])->name('solicitar-conta.store');
 
 
-// Página principal do dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Dashboard protegida(Apenas se logado)
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
-// Outras páginas
-Route::get('/meus-emprestimos', function () {
-    return view('meus-emprestimos');
-})->name('meus-emprestimos');
 
-Route::get('/grupos-poupanca', function () {
-    return view('grupos-poupanca');
-})->name('grupos-poupanca');
 
-Route::get('/perfil-usuario', function () {
-    return view('perfil-usuario');
-})->name('perfil-usuario');
+// Perfil de usuário
+Route::get('/perfil-usuario', [UsuarioController::class, 'perfil'])->name('perfil-usuario');
 
-Route::get('/solicitar-emprestimo', function () {
-    return view('solicitar-emprestimo');
-})->name('solicitar-emprestimo');
 
-Route::get('/adesao-grupos', function () {
-    return view('adesao-grupos');
-})->name('adesao-grupos');
+// Empréstimos
+Route::get('/meus-emprestimos', [EmprestimoController::class, 'meusEmprestimos'])->name('meus-emprestimos');
+Route::get('/solicitar-emprestimo', [EmprestimoController::class, 'solicitar'])->name('solicitar-emprestimo');
+Route::post('/solicitar-emprestimo', [EmprestimoController::class, 'store'])->name('solicitar-emprestimo.store');
 
-Route::get('/criar-grupo', function () {
-    return view('criar-grupo');
-})->name('criar-grupo');
+
+// Grupos
+Route::get('/grupos-poupanca', [GrupoController::class, 'gruposPoupanca'])->name('grupos-poupanca');
+Route::get('/adesao-grupos', [GrupoController::class, 'adesao'])->name('adesao-grupos');
+Route::get('/criar-grupo', [GrupoController::class, 'criar'])->name('criar-grupo');
+
+// Logout
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

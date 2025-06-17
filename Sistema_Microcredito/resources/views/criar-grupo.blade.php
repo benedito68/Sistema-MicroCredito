@@ -10,7 +10,7 @@
 <body>
     <div class="create-group-container">
                 <!-- Botão Voltar -->
-        <a href="dashboard.html" class="btn-voltar-link">
+        <a href="/dashboard" class="btn-voltar-link">
             <button class="btn-voltar" id="btn-voltar" title="Voltar">
                 <i class="fas fa-arrow-left"></i>
                 <span class="tooltip">Voltar</span>
@@ -46,7 +46,7 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="group-objective">Objetivo do Grupo *</label>
+                    <label for="group-objective">Objetivo do Grupo </label>
                     <textarea id="group-objective" name="group-objective" rows="3" required placeholder="Descreva o principal objetivo deste grupo"></textarea>
                 </div>
                 
@@ -144,7 +144,7 @@
                     
                     <div class="form-group checkbox-group">
                         <input type="checkbox" id="agree-terms" name="agree-terms" required>
-                        <label for="agree-terms">Eu li e concordo com os termos e condições acima *</label>
+                        <label for="agree-terms">Eu li e concordo com os termos e condições acima </label>
                     </div>
                 </div>
                 

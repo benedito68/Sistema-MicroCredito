@@ -68,14 +68,14 @@
                     <div class="user-dropdown">
                         <button class="user-button">
                             <i class="fas fa-user-circle"></i>
-                            <span id="username-display">Maria Silva</span>
+                            <span id="username-display">{{ Auth::user()->nome }}</span>
                             <i class="fas fa-chevron-down"></i>
                         </button>
                         <div class="dropdown-menu">
                             <a href="{{ route('perfil-usuario') }}"><i class="fas fa-user"></i> Meu Perfil</a>
                             <a href="#"><i class="fas fa-cog"></i> Configurações</a>
                             <div class="divider"></div>
-                            <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Terminar Sessão</a>
+                          <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Terminar Sessão</a>
                         </div>
                     </div>
                 </div>
@@ -83,9 +83,52 @@
             
             <!-- Dashboard Content -->
             <main class="content">
-                <!-- Cards de Resumo -->
-                <!-- (sem alterações aqui, mantém o conteúdo original dos cards) -->
-
+              <!-- Dashboard Content -->
+          
+                <div class="summary-cards">
+                    <div class="card">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="card-info">
+                            <h4>Saldo Disponível</h4>
+                            <p>5.280,00 MT</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon bg-success">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <div class="card-info">
+                            <h4>Poupança Total</h4>
+                            <p>3.150,00 MT</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon bg-warning">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="card-info">
+                            <h4>Empréstimos Ativos</h4>
+                            <p>2</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon bg-danger">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="card-info">
+                            <h4>Grupos Ativos</h4>
+                            <p>3</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Ações Rápidas -->
+                <div class="quick-actions">
                 <!-- Ações Rápidas -->
                 <div class="quick-actions">
                     <h3>Ações Rápidas</h3>
@@ -129,11 +172,57 @@
                 </div>
 
                 <!-- Gráficos e Atividades Recentes -->
-                <!-- (mantém o conteúdo original dos gráficos e atividades) -->
-
+                <div class="dashboard-row">
+                    <div class="chart-container">
+                        <h3>Minha Poupança (últimos 6 meses)</h3>
+                        <canvas id="savings-chart"></canvas>
+                    </div>
+                    
+                    <div class="recent-activity">
+                        <h3>Atividades Recentes</h3>
+                        <ul class="activity-list">
+                            <li>
+                                <i class="fas fa-file-invoice-dollar activity-icon loan"></i>
+                                <div class="activity-info">
+                                    <p>Pagamento de empréstimo realizado</p>
+                                    <small>Hoje, 10:45 AM - 500 MT</small>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-piggy-bank activity-icon savings"></i>
+                                <div class="activity-info">
+                                    <p>Depósito no grupo "Comércio Local"</p>
+                                    <small>Ontem, 2:30 PM - 300 MT</small>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-users activity-icon group"></i>
+                                <div class="activity-info">
+                                    <p>Você foi aceito no grupo "Agricultores Unidos"</p>
+                                    <small>2 dias atrás</small>
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fas fa-hand-holding-usd activity-icon loan"></i>
+                                <div class="activity-info">
+                                    <p>Solicitação de empréstimo aprovada</p>
+                                    <small>3 dias atrás - 2.500 MT</small>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
             </main>
         </div>
     </div>
+
+    //logout form
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+    </form>
+
+
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
